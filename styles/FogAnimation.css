@@ -1,0 +1,51 @@
+@keyframes fogAnimation {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50px, 20px) scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+}
+
+.fog-layer {
+  position: absolute;
+  width: 200%; /* Wider than the container to allow horizontal movement */
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  animation: fogAnimation 20s infinite ease-in-out;
+  pointer-events: none; /* Ensure it doesn't interfere with interactions */
+}
+
+.fog-layer-1 {
+  top: 10%;
+  left: -50%; /* Start off-screen */
+  animation-duration: 25s;
+  animation-delay: -5s; /* Start partway through animation */
+  opacity: 0.4;
+}
+
+.fog-layer-2 {
+  top: 30%;
+  left: -80%;
+  animation-duration: 30s;
+  animation-delay: -10s;
+  opacity: 0.3;
+  transform: scale(1.5);
+}
+
+.fog-layer-3 {
+  bottom: 10%;
+  right: -60%;
+  left: auto; /* Override default left */
+  animation-duration: 22s;
+  animation-delay: -2s;
+  opacity: 0.35;
+  transform: scale(1.2);
+}
