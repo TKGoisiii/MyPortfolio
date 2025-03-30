@@ -8,9 +8,10 @@ import '@/styles/BlogContent.css';
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: { slug: string}
 }): Promise<Metadata> {
-  const article = await getBlogArticleBySlug(params.slug)
+  const { slug } = await params;
+  const article = await getBlogArticleBySlug(slug);
   if (!article) {
     return notFound()
   }
@@ -21,12 +22,11 @@ export async function generateMetadata({
   }
 }
 
-export default async function BlogDetailPage({
-  params,
-}: {
-  params: { slug: string }
-}) {
-  const article = await getBlogArticleBySlug(params.slug);
+
+export default async function BlogDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = await params;
+  const article = await getBlogArticleBySlug(slug);
+
   if (!article) {
     return notFound()
   }
