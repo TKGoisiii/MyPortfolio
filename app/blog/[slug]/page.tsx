@@ -5,11 +5,9 @@ import Image from 'next/image'
 import { Tag } from '@/lib/types'
 import '@/styles/BlogContent.css'; 
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string}
-}): Promise<Metadata> {
+type Params = Promise<{ slug: string }>;
+
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params;
   const article = await getBlogArticleBySlug(slug);
   if (!article) {
@@ -23,7 +21,7 @@ export async function generateMetadata({
 }
 
 
-export default async function BlogDetailPage({ params }: { params: { slug: string } }) {
+export default async function BlogDetailPage({ params }: { params: Params }) {
   const { slug } = await params;
   const article = await getBlogArticleBySlug(slug);
 
