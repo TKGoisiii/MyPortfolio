@@ -42,7 +42,7 @@ export function Header() {
             </motion.div>
             
             <ul className="flex space-x-4 sm:space-x-8">
-              {['About', 'Works', 'Blog', 'Contact'].map((item) => (
+              {['Profile', 'Works', 'Blog', 'Contact'].map((item) => (
                 <motion.li 
                   key={item}
                   whileHover={{ scale: 1.1 }}

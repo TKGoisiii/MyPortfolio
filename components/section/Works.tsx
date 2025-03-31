@@ -12,7 +12,7 @@ export async function WorksGrid() {
   // Handle case where there are no works
   if (!works || works.length === 0) {
     return (
-      <section id="works" className="py-20 bg-gradient-to-b from-black/10 to-transparent">
+      <section id="Works" className="py-20 bg-gradient-to-b from-black/10 to-transparent">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-100 to-yellow-400">

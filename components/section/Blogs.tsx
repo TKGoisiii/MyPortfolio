@@ -14,7 +14,7 @@ export async function BlogsSection({ limit = 3 }: BlogsSectionProps) {
   // Handle case where there are no blogs
   if (!blogs || blogs.length === 0) {
     return (
-      <section id="blog" className="py-20">
+      <section id="Blog" className="py-20">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="mb-12">
             <h2 className="text-3xl font-bold mb-4 text-white">Blog Articles</h2>

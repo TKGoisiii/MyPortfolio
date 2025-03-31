@@ -4,6 +4,7 @@ import { SkillsSection } from '@/components/section/Skills'
 import { BlogsSection } from '@/components/section/Blogs'
 import { ZennBlogsSection } from '@/components/section/ZennBlogs'
 import Profile from '@/components/section/Profile';
+import Contact from '@/components/section/Contact';
 
 export default async function Home() {
   return (
@@ -14,6 +15,7 @@ export default async function Home() {
       <WorksGrid />
       <ZennBlogsSection />
       <BlogsSection />
+      <Contact />
     </>
   )
 }

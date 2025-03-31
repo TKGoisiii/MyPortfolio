@@ -6,7 +6,7 @@ import { useInView } from 'framer-motion';
 
 const skills = [
   'Next.js', 'TypeScript', 'React', 'Vue.js', 'Nuxt.js', 'Tailwind CSS', 'JavaScript',
-  'HTML5', 'CSS3', 'Node.js', 'Express',
+  'HTML5', 'CSS3', 'Node.js', 'Express', 'WordPress', 'Sitecore', 'C#', 
   'Git', 'Supabase', 'REST API', 'GraphQL'
 ];
 

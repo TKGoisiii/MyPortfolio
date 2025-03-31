@@ -27,7 +27,7 @@ const Profile = () => {
           <AvatarIcon />
           <div className="flex gap-4 mb-6">
             <a 
-              href="https://twitter.com/username" 
+              href="https://twitter.com/_sgmtppp" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-white/80 hover:text-white transition-colors"
@@ -35,7 +35,7 @@ const Profile = () => {
               <FaXTwitter size={24} />
             </a>
             <a 
-              href="https://github.com/username" 
+              href="https://github.com/TKGoisii" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-white/80 hover:text-white transition-colors"
@@ -43,7 +43,7 @@ const Profile = () => {
               <FaGithub size={24} />
             </a>
             <a 
-              href="https://linkedin.com/in/username" 
+              href="https://www.linkedin.com/in/%E7%A8%9C%E4%BD%91-%E9%AB%98%E5%8E%9F-9567252b3/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-white/80 hover:text-white transition-colors"
@@ -53,11 +53,10 @@ const Profile = () => {
           </div>
           <div className="text-white/80">
             <p className="mb-4 text-lg">
-              はじめまして。TKです。
-              [簡単な自己紹介や職務経歴をここに記述します。]
+              はじめまして。TKです。フロントエンドの言語をいじってます。
             </p>
             <p className="text-lg">
-              [趣味や興味、スキルセットなど、追加したい情報を記述します。]
+              趣味：旅行、音楽、ゲーム、サッカー
             </p>
           </div>
         </div>
