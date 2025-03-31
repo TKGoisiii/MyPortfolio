@@ -60,7 +60,7 @@ export function BlogsListClient({ blogs }: { blogs: BlogArticle[] }) {
       variants={containerVariants}
       initial="hidden"
       whileInView="visible" // Trigger animation on scroll
-      viewport={{ once: true, amount: 0.2 }} // Adjust viewport settings
+      viewport={{ once: true, amount: 0.5 }} // Adjust viewport settings
     >
       {blogs.map((blog) => (
         <motion.div key={blog._id} variants={itemVariants}>

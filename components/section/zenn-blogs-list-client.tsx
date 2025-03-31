@@ -58,7 +58,7 @@ export function ZennBlogsListClient({ articles }: { articles: ZennArticle[] }) {
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.5 }}
     >
       {articles.map((article) => (
         <motion.div key={`zenn-${article.id}`} variants={itemVariants}>

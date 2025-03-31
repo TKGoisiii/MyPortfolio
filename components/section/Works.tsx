@@ -15,7 +15,7 @@ export async function WorksGrid() {
       <section id="Works" className="py-20 bg-gradient-to-b from-black/10 to-transparent">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-100 to-yellow-400">
+            <h2 className="text-3xl font-bold text-center mb-12 text-white">
               My Works
             </h2>
             <p className="text-white/80 max-w-2xl mx-auto">
@@ -33,9 +33,9 @@ export async function WorksGrid() {
   // Render the section structure and pass data to the Client Component
   return (
     <section id="works" className="py-20 bg-gradient-to-b from-black/10 to-transparent">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-100 to-yellow-400">
+          <h2 className="text-3xl font-bold text-white mb-4">
             My Works
           </h2>
           <p className="text-white/80 max-w-2xl mx-auto">

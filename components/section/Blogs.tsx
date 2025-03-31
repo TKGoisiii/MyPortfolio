@@ -14,14 +14,14 @@ export async function BlogsSection({ limit = 3 }: BlogsSectionProps) {
   // Handle case where there are no blogs
   if (!blogs || blogs.length === 0) {
     return (
-      <section id="Blog" className="py-20">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-white">Blog Articles</h2>
-            <p className="text-white/80">
-              技術以外の、日常的なこととか(将来的に別サイトに移行予定)
-            </p>
-          </div>
+      <section id="blog" className="py-20">
+      <div className="container mx-auto px-6 max-w-4xl">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-white mb-4">Blog Articles</h2>
+          <p className="text-white/80 max-w-2xl mx-auto">
+            技術以外の、日常的なこととか(将来的に別サイトに移行予定)
+          </p>
+        </div>
           <p className="text-white/80 text-center py-10">記事はまだありません。</p>
         </div>
       </section>
@@ -32,9 +32,9 @@ export async function BlogsSection({ limit = 3 }: BlogsSectionProps) {
   return (
     <section id="blog" className="py-20">
       <div className="container mx-auto px-6 max-w-4xl">
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-4 text-white">Blog Articles</h2>
-          <p className="text-white/80">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-white mb-4">Blog Articles</h2>
+          <p className="text-white/80 max-w-2xl mx-auto">
             技術以外の、日常的なこととか(将来的に別サイトに移行予定)
           </p>
         </div>

@@ -24,7 +24,7 @@ const computePosition = (index: number, total: number, radius: number) => {
 
 export function SkillsSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
   const controls = useAnimation();
   const [tagPositions, setTagPositions] = useState<{ x: number; y: number; z: number }[]>([]);
   const radius = 150; // 球体の半径 (px) - ビューポートに応じて調整可能
@@ -43,14 +43,11 @@ export function SkillsSection() {
   return (
     <section ref={ref} className="py-20 overflow-hidden">
       <div className="container mx-auto px-6 flex flex-col items-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-3xl font-bold text-center mb-16 text-white"
-        >
-          My Skills
-        </motion.h2>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            My Skills
+          </h2>
+        </div>
 
         <motion.div
           className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]" // Container size

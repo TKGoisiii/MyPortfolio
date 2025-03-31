@@ -41,13 +41,11 @@ export function WorksGridClient({ works }: { works: WorkProject[] }) {
         return (
           <motion.div
             key={work._id}
-            className={`flex flex-col md:flex-row ${
-              isOdd ? 'md:flex-row-reverse' : '' // Alternate layout direction
-            } items-center gap-8 md:gap-12 group`}
+            className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 group`}
             variants={itemVariants(direction)}
             initial="hidden"
             whileInView="visible" // Trigger animation on scroll
-            viewport={{ once: true, amount: 0.3 }} // Adjust viewport settings
+            viewport={{ once: true, amount: 0.5 }}
           >
             {/* Image Section (adjust size) */}
             <div className="w-full md:w-1/2 lg:w-2/5 relative aspect-video overflow-hidden rounded-lg shadow-lg shadow-black/30 border border-white/10 group-hover:border-yellow-300/50 transition-colors duration-300">
