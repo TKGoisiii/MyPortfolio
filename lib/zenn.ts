@@ -19,7 +19,7 @@ export interface ZennArticle {
 
 export async function getZennArticles(limit: number = 3): Promise<ZennArticle[]> {
   try {
-    const response = await fetch('https://zenn.dev/api/articles?username=tkay');
+    const response = await fetch('https://zenn.dev/api/articles?username=tkay', { next: { revalidate: 3600 } }); //　1時間キャッシュ
     if (!response.ok) {
       throw new Error(`Zenn API request failed with status ${response.status}`);
     }
