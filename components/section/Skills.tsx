@@ -27,12 +27,12 @@ export function SkillsSection() {
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   const controls = useAnimation();
   const [tagPositions, setTagPositions] = useState<{ x: number; y: number; z: number }[]>([]);
-  const radius = 150; // 球体の半径 (px) - ビューポートに応じて調整可能
+  const radius = 150;
 
   useEffect(() => {
     const positions = skills.map((_, index) => computePosition(index, skills.length, radius));
     setTagPositions(positions);
-  }, []); // コンポーネントマウント時に一度だけ計算
+  }, []);
 
   useEffect(() => {
     if (isInView) {
@@ -50,8 +50,8 @@ export function SkillsSection() {
         </div>
 
         <motion.div
-          className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]" // Container size
-          style={{ perspective: '1000px' }} // Enable 3D perspective
+          className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]"
+          style={{ perspective: '1000px' }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={controls}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -59,7 +59,7 @@ export function SkillsSection() {
           <motion.div
             className="absolute w-full h-full"
             style={{ transformStyle: 'preserve-3d' }}
-            animate={{ rotateY: 360 }} // Continuous rotation
+            animate={{ rotateY: 360 }}
             transition={{ duration: 25, ease: 'linear', repeat: Infinity }}
           >
             {tagPositions.map((pos, index) => (
@@ -67,15 +67,12 @@ export function SkillsSection() {
                 key={skills[index]}
                 className="absolute top-1/2 left-1/2 text-white text-sm sm:text-base font-medium cursor-default hover:text-yellow-300 transition-colors duration-200"
                 style={{
-                  // 初期位置を中心に設定し、計算された3D座標でオフセット
-                  x: '-50%', // translateX(-50%)
-                  y: '-50%', // translateY(-50%)
-                  // transform は motion コンポーネントが管理
+                  x: '-50%',
+                  y: '-50%',
                 }}
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity: 1,
-                  // 3D空間での位置を設定
                   transform: `translate3d(${pos.x}px, ${pos.y}px, ${pos.z}px) translateX(-50%) translateY(-50%)`,
                 }}
                 transition={{ duration: 0.5, delay: 0.5 + index * 0.05 }}

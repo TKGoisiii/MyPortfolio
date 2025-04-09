@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+サイトURL: https://my-portfolio-three-liart.vercel.app/
 
-## Getting Started
+# フロントエンド
 
-First, run the development server:
+*   **フレームワーク:** [Next.js](https://nextjs.org/) (v15.2.4)
+    *   App Router を使用
+*   **言語:** [TypeScript](https://www.typescriptlang.org/) (v5)
+*   **CSS:** [Tailwind CSS](https://tailwindcss.com/) (v4)
+*   **アニメーション:** [Framer Motion](https://www.framer.com/motion/) (v12.6.2)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+*   **外部サービス:** [Zenn]- Zennの記事フィードを取得して表示
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 主な機能・仕様 (ファイル構造から推測)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+*   **ブログ、ポートフォリオ表示機能:**
+    *   Newt CMS(https://www.newt.so/) から記事データを取得して一覧・詳細表示　同じ管理画面から編集できるので楽です
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+*   **Zenn記事表示機能:**
+    *   Zenn(https://zenn.dev/) からAPI経由で記事を取得して表示
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*   アニメーションはFramer Motionを使用して、ほぼAIに任せて作ってもらいました

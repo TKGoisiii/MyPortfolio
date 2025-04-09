@@ -1,16 +1,14 @@
 'use client'
 
-import { useState, useEffect } from 'react'; // Import useState and useEffect
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 
 export function Header() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Scroll event listener
   useEffect(() => {
     const handleScroll = () => {
-      // Show header if scrolled down more than, say, 100px
       if (window.scrollY > 100) {
         setIsVisible(true);
       } else {
@@ -20,7 +18,6 @@ export function Header() {
 
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup function to remove the event listener
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -30,9 +27,9 @@ export function Header() {
     <AnimatePresence>
       {isVisible && (
         <motion.header
-          initial={{ opacity: 0, y: -50 }} // Start hidden and slightly above
-          animate={{ opacity: 1, y: 0 }} // Animate to visible and original position
-          exit={{ opacity: 0, y: -50 }} // Animate out when hiding
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -50 }}
           transition={{ duration: 0.3 }}
           className="fixed top-0 w-full bg-black/50 backdrop-blur-md z-50 text-white"
         >

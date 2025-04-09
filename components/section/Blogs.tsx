@@ -1,8 +1,7 @@
-// This is now a Server Component
 import Link from 'next/link';
 import { getBlogArticles } from '@/lib/newt';
 import type { BlogArticle } from '@/lib/types';
-import { BlogsListClient } from './blogs-list-client'; // Import the Client Component
+import { BlogsListClient } from './blogs-list-client';
 
 interface BlogsSectionProps {
   limit?: number;
@@ -11,7 +10,6 @@ interface BlogsSectionProps {
 export async function BlogsSection({ limit = 3 }: BlogsSectionProps) {
   const blogs: BlogArticle[] = await getBlogArticles(limit);
 
-  // Handle case where there are no blogs
   if (!blogs || blogs.length === 0) {
     return (
       <section id="blog" className="py-20">
@@ -28,7 +26,6 @@ export async function BlogsSection({ limit = 3 }: BlogsSectionProps) {
     );
   }
 
-  // Render the section structure and pass data to the Client Component
   return (
     <section id="blog" className="py-20">
       <div className="container mx-auto px-6 max-w-4xl">
@@ -39,7 +36,6 @@ export async function BlogsSection({ limit = 3 }: BlogsSectionProps) {
           </p>
         </div>
 
-        {/* Render Client Component with fetched data */}
         <BlogsListClient blogs={blogs} />
 
         <div className="mt-12 text-center">

@@ -17,6 +17,7 @@ export interface ZennArticle {
   };
 }
 
+//Zennの記事をAPIで取得
 export async function getZennArticles(limit: number = 3): Promise<ZennArticle[]> {
   try {
     const response = await fetch('https://zenn.dev/api/articles?username=tkay', { next: { revalidate: 3600 } }); //　1時間キャッシュ

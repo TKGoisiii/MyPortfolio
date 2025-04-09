@@ -1,15 +1,10 @@
-// This is now a Server Component
-
 import { getWorkProjects } from '@/lib/newt';
 import type { WorkProject } from '@/lib/types';
-import { WorksGridClient } from './works-grid-client'; // Import the Client Component
+import { WorksGridClient } from './works-grid-client';
 
-// Server Component for data fetching and structure
 export async function WorksGrid() {
-  // Fetch data on the server
   const works: WorkProject[] = await getWorkProjects(6);
 
-  // Handle case where there are no works
   if (!works || works.length === 0) {
     return (
       <section id="Works" className="py-20 bg-gradient-to-b from-black/10 to-transparent">
@@ -30,7 +25,6 @@ export async function WorksGrid() {
     );
   }
 
-  // Render the section structure and pass data to the Client Component
   return (
     <section id="works" className="py-20 bg-gradient-to-b from-black/10 to-transparent">
       <div className="container mx-auto px-6 max-w-4xl">
@@ -42,7 +36,6 @@ export async function WorksGrid() {
             これまでに制作したプロジェクトの一覧です
           </p>
         </div>
-        {/* Render Client Component with fetched data */}
         <WorksGridClient works={works} />
       </div>
     </section>

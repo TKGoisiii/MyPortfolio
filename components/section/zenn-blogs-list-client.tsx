@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import type { ZennArticle } from '@/lib/zenn'; // Import ZennArticle from lib/zenn.ts
+import type { ZennArticle } from '@/lib/zenn';
 import { format, parseISO, isValid } from 'date-fns';
 import { motion } from 'framer-motion';
 
@@ -24,7 +24,6 @@ const formatDate = (dateString: string | undefined | null): string => {
   }
 };
 
-// Animation variants (can reuse from BlogsListClient or define separately)
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {

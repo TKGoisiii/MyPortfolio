@@ -1,19 +1,17 @@
-'use client'; // This component uses framer-motion
+'use client';
 
 import type { WorkProject } from '@/lib/types';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-// Client Component to handle animation and display
 export function WorksGridClient({ works }: { works: WorkProject[] }) {
-  // Animation variants for each item based on scroll trigger
   const itemVariants = (direction: 'left' | 'right') => ({
     hidden: {
-      x: direction === 'left' ? -100 : 100, // Start off-screen left or right
+      x: direction === 'left' ? -100 : 100,
       opacity: 0,
     },
     visible: {
-      x: 0, // Animate to original position
+      x: 0,
       opacity: 1,
       transition: {
         type: 'spring',
@@ -32,11 +30,10 @@ export function WorksGridClient({ works }: { works: WorkProject[] }) {
   }
 
   return (
-    // Use a simple div container with vertical spacing
     <div className="space-y-16 md:space-y-24">
       {works.map((work, index) => {
         const isOdd = index % 2 !== 0;
-        const direction = isOdd ? 'right' : 'left'; // Determine animation direction
+        const direction = isOdd ? 'right' : 'left';
 
         return (
           <motion.div
@@ -44,16 +41,15 @@ export function WorksGridClient({ works }: { works: WorkProject[] }) {
             className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 group`}
             variants={itemVariants(direction)}
             initial="hidden"
-            whileInView="visible" // Trigger animation on scroll
+            whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
           >
-            {/* Image Section (adjust size) */}
             <div className="w-full md:w-1/2 lg:w-2/5 relative aspect-video overflow-hidden rounded-lg shadow-lg shadow-black/30 border border-white/10 group-hover:border-yellow-300/50 transition-colors duration-300">
               {work.image ? (
                 <Image
                   src={work.image.src}
                   alt={work.image.altText || work.title}
-                  fill // Use fill for aspect ratio container
+                  fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -64,7 +60,6 @@ export function WorksGridClient({ works }: { works: WorkProject[] }) {
               )}
             </div>
 
-            {/* Text Content Section */}
             <div className="w-full md:w-1/2 lg:w-3/5">
               <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-yellow-300 transition-colors">
                 {work.title}
@@ -77,7 +72,6 @@ export function WorksGridClient({ works }: { works: WorkProject[] }) {
                   {work.categoryName}
                 </span>
               )}
-              {/* Add link if available */}
               {/* {work.url && (
                 <a href={work.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-yellow-300 hover:text-yellow-100 transition-colors">
                   View Project →

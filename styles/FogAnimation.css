@@ -15,19 +15,19 @@
 
 .fog-layer {
   position: absolute;
-  width: 200%; /* Wider than the container to allow horizontal movement */
+  width: 200%;
   height: 100%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
   border-radius: 50%;
   animation: fogAnimation 20s infinite ease-in-out;
-  pointer-events: none; /* Ensure it doesn't interfere with interactions */
+  pointer-events: none;
 }
 
 .fog-layer-1 {
   top: 10%;
-  left: -50%; /* Start off-screen */
+  left: -50%;
   animation-duration: 25s;
-  animation-delay: -5s; /* Start partway through animation */
+  animation-delay: -5s;
   opacity: 0.4;
 }
 
@@ -43,7 +43,7 @@
 .fog-layer-3 {
   bottom: 10%;
   right: -60%;
-  left: auto; /* Override default left */
+  left: auto;
   animation-duration: 22s;
   animation-delay: -2s;
   opacity: 0.35;

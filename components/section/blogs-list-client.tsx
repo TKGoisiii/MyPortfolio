@@ -24,13 +24,12 @@ const formatDate = (dateString: string | undefined | null): string => {
   }
 };
 
-// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1, // Stagger animation for each child
+      staggerChildren: 0.1,
     },
   },
 };
@@ -49,8 +48,6 @@ const itemVariants = {
 
 export function BlogsListClient({ blogs }: { blogs: BlogArticle[] }) {
   if (!blogs || blogs.length === 0) {
-    // This case should ideally be handled by the parent server component,
-    // but added here as a fallback.
     return <p className="text-white/80 text-center py-10">記事はまだありません。</p>;
   }
 
@@ -59,8 +56,8 @@ export function BlogsListClient({ blogs }: { blogs: BlogArticle[] }) {
       className="space-y-8"
       variants={containerVariants}
       initial="hidden"
-      whileInView="visible" // Trigger animation on scroll
-      viewport={{ once: true, amount: 0.5 }} // Adjust viewport settings
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.5 }}
     >
       {blogs.map((blog) => (
         <motion.div key={blog._id} variants={itemVariants}>

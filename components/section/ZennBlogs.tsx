@@ -2,8 +2,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getZennArticles } from '@/lib/zenn';
-import type { ZennArticle } from '@/lib/zenn'; // Import type for clarity
-import { ZennBlogsListClient } from './zenn-blogs-list-client'; // Import the Client Component
+import type { ZennArticle } from '@/lib/zenn';
+import { ZennBlogsListClient } from './zenn-blogs-list-client';
 
 interface ZennBlogsSectionProps {
   limit?: number;
@@ -12,7 +12,6 @@ interface ZennBlogsSectionProps {
 export async function ZennBlogsSection({ limit = 3 }: ZennBlogsSectionProps) {
   const articles: ZennArticle[] = await getZennArticles(limit);
 
-  // Handle case where there are no articles
   if (!articles || articles.length === 0) {
     return (
       <section id="zenn-blog" className="py-20">
@@ -35,7 +34,6 @@ export async function ZennBlogsSection({ limit = 3 }: ZennBlogsSectionProps) {
     );
   }
 
-  // Render the section structure and pass data to the Client Component
   return (
     <section id="zenn-blog" className="py-20">
       <div className="container mx-auto px-6 max-w-4xl">

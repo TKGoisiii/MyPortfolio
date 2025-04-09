@@ -1,6 +1,6 @@
 import { createClient } from 'newt-client-js'
+import type { BlogArticle, WorkProject } from './types';
 
-// Type guard for environment variables
 const checkEnvVariable = (variable: string | undefined, name: string): string => {
   if (!variable) {
     throw new Error(`Environment variable ${name} is not defined.`);
@@ -19,45 +19,26 @@ export const newtClient = createClient({
   apiType: 'cdn', 
 });
 
-// Import types
-import type { BlogArticle, WorkProject } from './types';
-
-// Function to fetch blog articles
+//ブログ記事一覧取得
 export const getBlogArticles = async (limit: number = 3): Promise<BlogArticle[]> => {
   try {
     const { items } = await newtClient.getContents<BlogArticle>({
       appUid: blogAppUid,
-      modelUid: 'article', // Assuming your Blog model UID is 'article' - CHANGE IF DIFFERENT
+      modelUid: 'article',
       query: {
-        // Select body instead of excerpt
         select: ['_id', '_sys', 'title', 'publishDate', 'categoryName', 'body', 'slug'], 
-        order: ['-publishDate'], // Order by publish date descending
+        order: ['-publishDate'],
         limit: limit,
       },
     });
     return items;
   } catch (error) {
     console.error("Failed to fetch blog articles:", error);
-    return []; // Return empty array on error
+    return [];
   }
 };
 
-// Function to fetch single blog article by ID
-export const getBlogArticleById = async (id: string): Promise<BlogArticle | null> => {
-  try {
-    const article = await newtClient.getContent<BlogArticle>({
-      appUid: blogAppUid,
-      modelUid: 'article',
-      contentId: id,
-    });
-    return article;
-  } catch (error) {
-    console.error(`Failed to fetch blog article with ID ${id}:`, error);
-    return null;
-  }
-};
-
-// Function to fetch single blog article by slug
+//ブログ記事詳細取得
 export const getBlogArticleBySlug = async (slug: string): Promise<BlogArticle | null> => {
   try {
     const { items } = await newtClient.getContents<BlogArticle>({
@@ -85,21 +66,21 @@ export const getBlogArticleBySlug = async (slug: string): Promise<BlogArticle | 
   }
 };
 
-// Function to fetch work projects
+//作品一覧取得
 export const getWorkProjects = async (limit: number = 6): Promise<WorkProject[]> => {
   try {
     const { items } = await newtClient.getContents<WorkProject>({
       appUid: worksAppUid,
-      modelUid: 'portfolio', // Changed model UID from 'project' to 'portfolio'
+      modelUid: 'portfolio',
       query: {
-        select: ['_id', '_sys', 'title', 'categoryName', 'image', 'description'], // Select necessary fields
-        order: ['-_sys.createdAt'], // Order by creation date descending
+        select: ['_id', '_sys', 'title', 'categoryName', 'image', 'description'],
+        order: ['-_sys.createdAt'],
         limit: limit,
       },
     });
     return items;
   } catch (error) {
     console.error("Failed to fetch work projects:", error);
-    return []; // Return empty array on error
+    return [];
   }
 };
