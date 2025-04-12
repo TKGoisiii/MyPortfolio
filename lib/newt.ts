@@ -27,7 +27,7 @@ export const getBlogArticles = async (limit: number = 3): Promise<BlogArticle[]>
       modelUid: 'article',
       query: {
         select: ['_id', '_sys', 'title', 'publishDate', 'categoryName', 'body', 'slug'], 
-        order: ['-publishDate'],
+        order: ['-_sys.customOrder'],
         limit: limit,
       },
     });
@@ -74,7 +74,7 @@ export const getWorkProjects = async (limit: number = 6): Promise<WorkProject[]>
       modelUid: 'portfolio',
       query: {
         select: ['_id', '_sys', 'title', 'categoryName', 'image', 'description'],
-        order: ['-_sys.createdAt'],
+        order: ['-_sys.customOrder'],
         limit: limit,
       },
     });
