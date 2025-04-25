@@ -1,10 +1,19 @@
+import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Header } from '@/components/section/Header'
 import { Footer } from '@/components/section/Footer'
 import './globals.css'
 import '@/styles/FogAnimation.css';
 
+
+
 const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: `TK's Portfolio`,
+  description: 'TKのポートフォリオ用サイトです。Next.jsで作られています',
+}
+
 
 export default function RootLayout({
   children,
